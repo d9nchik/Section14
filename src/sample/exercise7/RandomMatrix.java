@@ -29,7 +29,7 @@ public class RandomMatrix extends Application {
             }
         Scene scene = new Scene(pane);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Exercise 6");
+        primaryStage.setTitle("Exercise 7");
         primaryStage.show();
     }
 }
