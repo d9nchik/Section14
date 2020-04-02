@@ -37,6 +37,15 @@ class Rectangul extends Pane {
         paint();
     }
 
+    private static Line buildDown(Line lineStart, Line lineFinish) {
+        Line line = new Line();
+        line.startXProperty().bind(lineStart.endXProperty());
+        line.startYProperty().bind(lineStart.endYProperty());
+        line.endXProperty().bind(lineFinish.endXProperty());
+        line.endYProperty().bind(lineFinish.endYProperty());
+        return line;
+    }
+
     private void paint() {
         Line line1 = new Line();
         line1.setStartX(endX);
@@ -86,29 +95,13 @@ class Rectangul extends Pane {
         line8.endXProperty().bind(line1.endXProperty());
         line8.endYProperty().bind(line6.endYProperty());
 
-        Line line9 = new Line();
-        line9.startXProperty().bind(line6.endXProperty());
-        line9.startYProperty().bind(line6.endYProperty());
-        line9.endXProperty().bind(line8.endXProperty());
-        line9.endYProperty().bind(line8.endYProperty());
+        Line line9 = buildDown(line6, line8);
 
-        Line line10 = new Line();
-        line10.startXProperty().bind(line5.endXProperty());
-        line10.startYProperty().bind(line5.endYProperty());
-        line10.endXProperty().bind(line7.endXProperty());
-        line10.endYProperty().bind(line7.endYProperty());
+        Line line10 = buildDown(line5, line7);
 
-        Line line11 = new Line();
-        line11.startXProperty().bind(line5.endXProperty());
-        line11.startYProperty().bind(line5.endYProperty());
-        line11.endXProperty().bind(line6.endXProperty());
-        line11.endYProperty().bind(line6.endYProperty());
+        Line line11 = buildDown(line5, line6);
 
-        Line line12 = new Line();
-        line12.startXProperty().bind(line8.endXProperty());
-        line12.startYProperty().bind(line8.endYProperty());
-        line12.endXProperty().bind(line7.endXProperty());
-        line12.endYProperty().bind(line7.endYProperty());
+        Line line12 = buildDown(line8, line7);
 
 
         getChildren().addAll(line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12);
