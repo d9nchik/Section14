@@ -57,7 +57,7 @@ class Block extends VBox {
         getChildren().add(rectangle);
     }
 
-    private Color randomColor() {
+    private static Color randomColor() {
         Random random = new Random();
         return new Color(random.nextDouble(), random.nextDouble(), random.nextDouble(), random.nextDouble());
     }
